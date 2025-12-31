@@ -2,6 +2,11 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\ExpenseByCategoryChart;
+use App\Filament\Widgets\ExpenseStatsWidget;
+use App\Filament\Widgets\PendingTasksWidget;
+use App\Filament\Widgets\UpcomingEventsStatsWidget;
+use App\Filament\Widgets\VehicleStatsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -38,6 +43,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
+                VehicleStatsWidget::class,
+                ExpenseStatsWidget::class,
+                ExpenseByCategoryChart::class,
+                UpcomingEventsStatsWidget::class,
+                PendingTasksWidget::class,
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
