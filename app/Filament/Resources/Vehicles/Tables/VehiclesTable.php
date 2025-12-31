@@ -79,6 +79,11 @@ class VehiclesTable
                     ->numeric()
                     ->sortable()
                     ->toggleable(),
+                TextColumn::make('weekly_rent')
+                    ->label('Aluguer semanal')
+                    ->money('EUR')
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('expenses_sum_amount')
                     ->label('Total de despesas')
                     ->money('EUR')

@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
 
     protected $casts = [
@@ -15,12 +18,18 @@ class Vehicle extends Model
         'annual_depreciation_percent' => 'decimal:2',
         'acquisition_value' => 'decimal:2',
         'mileage' => 'integer',
+        'weekly_rent' => 'decimal:2',
         'year' => 'integer',
     ];
 
     public function rentals(): HasMany
     {
         return $this->hasMany(VehicleRental::class);
+    }
+
+    public function assignments(): HasMany
+    {
+        return $this->hasMany(DriverVehicleAssignment::class);
     }
 
     public function expenses(): HasMany

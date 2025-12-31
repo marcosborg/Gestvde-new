@@ -79,6 +79,11 @@ class VehicleForm
                                 ->suffix('%')
                                 ->minValue(0)
                                 ->maxValue(100),
+                            TextInput::make('weekly_rent')
+                                ->label('Aluguer semanal')
+                                ->numeric()
+                                ->prefix('EUR')
+                                ->minValue(0),
                         ]),
                     ]),
                 Section::make('Estado')
